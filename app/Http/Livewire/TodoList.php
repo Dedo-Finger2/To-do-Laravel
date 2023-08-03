@@ -34,7 +34,7 @@ class TodoList extends Component
     public function createTask()
     {
         // Validação apenas
-        $validData = $this->validate();
+        $validData = $this->validateOnly('name');
         // Criar tarefa
         Todo::create($validData);
         // Limpar o input
