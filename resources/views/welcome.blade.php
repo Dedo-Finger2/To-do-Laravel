@@ -15,37 +15,16 @@
             <div class="col-3">
                 <h1>To do - Livewire</h1>
                 <hr>
-                <form>
-                    <div class="mb-4">
-                        <label for="taskName" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="taskName" aria-describedby="taskNameHlep">
-                        <div id="taskNameHlep" class="form-text">Escolha um nome para sua task.</div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Adicionar task</button>
-                </form>
+                @include('components.task-insert-box')
             </div>
             <div class="col-1">
-                
+
             </div>
             <div class="col-8">
                 <h1 class="text-center">Tasks</h1>
                 <hr>
-                <div class="container mt-4">
-                    <!-- Exemplo de uma task -->
-                    <div class="row bg-light rounded p-3 mb-2 align-items-center">
-                        <div class="col-9">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label" aria-describedby="checkBoxHelp">Task name</label>
-                                <div id="checkBoxHelp" class="form-text">Descrição.</div>
-                            </div>
-                        </div>
-                        <div class="col-3 text-right">
-                            <button class="btn btn-success mt-1">Editar</button>
-                            <button class="btn btn-danger mt-1">Deletar</button>
-                        </div>
-                    </div>
-                </div>
+                @include('components.search-box')
+                @include('components.task-card')
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
