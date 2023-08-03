@@ -4,7 +4,11 @@
     <div class="row bg-light rounded p-3 mb-2 align-items-center">
         <div class="col-9">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox">
+                @if ($todo->completed)
+                    <input wire:click='toggleCheck({{ $todo->id }})' checked class="form-check-input" type="checkbox">
+                @else
+                    <input wire:click='toggleCheck({{ $todo->id }})' class="form-check-input" type="checkbox">
+                @endif
                 {{-- <input type="text"> --}}
                 <label class="form-check-label" aria-describedby="checkBoxHelp"> {{ $todo->name }} </label>
                 <div id="checkBoxHelp" class="form-text"> {{ $todo->description }} </div>

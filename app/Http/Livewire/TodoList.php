@@ -42,6 +42,12 @@ class TodoList extends Component
         session()->flash('success', 'Tarefa criada com sucesso!');
     }
 
+    public function toggleCheck(Todo $todo)
+    {
+        $todo->completed = !$todo->completed;
+        $todo->save();
+    }
+
     public function deleteTask(Todo $todo)
     {
         $todo->delete();
