@@ -12,7 +12,10 @@ class TodoList extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $name;
-    public $description;
+    public $deleteTodoId;
+
+    protected $listeners = ['deleteTaskConfirmation'=>'deleteTask'];
+
     public $search;
     public $editingTodoId;
     public $editingTodoName;
@@ -73,9 +76,18 @@ class TodoList extends Component
         $this->cancelEdit();
     }
 
-    public function deleteTask(Todo $todo)
+    public function deleteTask()
     {
-        $todo->delete();
+        $task = Todo::find($this->deleteTodoId);
+        $task->delete();
+
+        $this->dispatchBrowserEvent('taskDeleted');
+    }
+
+    public function deleteTaskConfirmation(Todo $todo)
+    {
+        $this->deleteTodoId = $todo->id;
+        $this->dispatchBrowserEvent('deleteTaskEvent');
     }
 
     public function render()
