@@ -13,9 +13,7 @@ class TodoList extends Component
     protected $paginationTheme = 'bootstrap';
     public $name;
     public $deleteTodoId;
-
     protected $listeners = ['deleteTaskConfirmation'=>'deleteTask'];
-
     public $search;
     public $editingTodoId;
     public $editingTodoName;

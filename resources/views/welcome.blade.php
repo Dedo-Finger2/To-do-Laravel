@@ -38,6 +38,7 @@
             });
         });
 
+        // Mensagem de "deletado"
         window.addEventListener('taskDeleted', event => {
             Swal.fire(
                 'Deletado!',
@@ -46,9 +47,6 @@
             )
         });
     </script>
-
-
-
     @livewireScripts
 </body>
 
