@@ -18,6 +18,7 @@
         @enderror
         <div id="descriptionHelp" class="form-text">Descreva sua task.</div>
     </div>
+
     <button type="submit" class="btn btn-primary">Adicionar task</button>
     @if(session('success'))
         <div class="">

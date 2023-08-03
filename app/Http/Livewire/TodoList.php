@@ -4,9 +4,13 @@ namespace App\Http\Livewire;
 
 use App\Models\Todo;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class TodoList extends Component
 {
+
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $name;
     public $description;
     public $search;
@@ -25,7 +29,6 @@ class TodoList extends Component
         'description.max' => 'O campo descrição não deve ter mais de 200 caracteres.',
     ];
 
-
     public function createTask()
     {
         // Validação apenas
@@ -41,6 +44,8 @@ class TodoList extends Component
 
     public function render()
     {
-        return view('livewire.todo-list');
+        return view('livewire.todo-list',[
+            'todos' => Todo::latest()->where('name', 'like', "%{$this->search}%")->paginate(4)
+        ]);
     }
 }
