@@ -42,6 +42,8 @@ class TodoList extends Component
         $this->reset('description');
         // Feedback
         session()->flash('success', 'Tarefa criada com sucesso!');
+        // Volta para a página 1
+        $this->resetPage();
     }
 
     public function toggleCheck(Todo $todo)
@@ -78,8 +80,11 @@ class TodoList extends Component
 
     public function render()
     {
-        return view('livewire.todo-list',[
-            'todos' => Todo::latest()->where('name', 'like', "%{$this->search}%")->paginate(4)
+        $results = Todo::latest()->where('name', 'like', "%{$this->search}%")->paginate(4);
+
+        return view('livewire.todo-list', [
+            'todos' => $results->isEmpty() ? null : $results
         ]);
     }
+
 }

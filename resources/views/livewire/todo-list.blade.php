@@ -13,11 +13,15 @@
                 <h1 class="text-center">Tasks</h1>
                 <hr>
                 @include('components.search-box')
-                @foreach ($todos as $todo)
-                    @include('components.task-card')
-                @endforeach
+                @if ($todos)
+                    @foreach ($todos as $todo)
+                        @include('components.task-card')
+                    @endforeach
+                    {{ $todos->links() }}
+                @else
+                    <h2 class="text-center mt-2">Nenhum resultado encontrado.</h2>
+                @endif
 
-                {{ $todos->links() }}
             </div>
         </div>
     </div>
