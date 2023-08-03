@@ -17,16 +17,12 @@ class TodoList extends Component
 
     protected $rules = [
         'name' => 'required|min:3|max:50',
-        'description' => 'required|min:3|max:200'
     ];
 
     protected $messages = [
         'name.required' => 'O campo nome é obrigatório.',
         'name.min' => 'O campo nome deve ter pelo menos 3 caracteres.',
         'name.max' => 'O campo nome não deve ter mais de 50 caracteres.',
-        'description.required' => 'O campo descrição é obrigatório.',
-        'description.min' => 'O campo descrição deve ter pelo menos 3 caracteres.',
-        'description.max' => 'O campo descrição não deve ter mais de 200 caracteres.',
     ];
 
     public function createTask()

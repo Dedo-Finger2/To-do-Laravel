@@ -11,7 +11,6 @@
                 @endif
                 {{-- <input type="text"> --}}
                 <label class="form-check-label" aria-describedby="checkBoxHelp"> {{ $todo->name }} </label>
-                <div id="checkBoxHelp" class="form-text"> {{ $todo->description }} </div>
                 <div id="checkBoxHelp" class="form-text"> {{ $todo->created_at }} </div>
 
                 {{-- <button class="btn btn-success mt-1">Update</button>
