@@ -42,6 +42,11 @@ class TodoList extends Component
         session()->flash('success', 'Tarefa criada com sucesso!');
     }
 
+    public function deleteTask(Todo $todo)
+    {
+        $todo->delete();
+    }
+
     public function render()
     {
         return view('livewire.todo-list',[

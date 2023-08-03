@@ -16,7 +16,7 @@
         </div>
         <div class="col-3 text-right">
             <button class="btn btn-success mt-1">Editar</button>
-            <button class="btn btn-danger mt-1">Deletar</button>
+            <button wire:click='deleteTask({{ $todo->id }})' class="btn btn-danger mt-1">Deletar</button>
         </div>
     </div>
 </div>
